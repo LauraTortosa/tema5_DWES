@@ -1,11 +1,10 @@
 <?php
 
-class Imagen 
-{
+class Imagen{
     //atributos
     private $src; //nombre
     private $border; //ancho
-    private $ruta_images; //ruta
+    private $ruta_images = "images/"; //ruta
 
     //metodos
     function __construct($src, $border = 0) {
@@ -14,12 +13,7 @@ class Imagen
     }
 
     function __toString() {
-        return "<img src=" . $this->ruta_images . " border=" . $this->border . "/>";
-
+        $html = '<img src="' . $this->src . '" border="' . $this->border . '"/>';
+        return $html;
     }
 }
-
-
-
-
-?>

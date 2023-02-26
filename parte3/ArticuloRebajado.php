@@ -5,19 +5,20 @@ final class ArticuloRebajado extends Articulo {
 
     function __construct($pNombre, $pPrecio, $pRebaja) {
         parent::__construct();
-        $this->pRebaja = $pRebaja;
+        $this->rebaja = $pRebaja;
     }
 
     private function calculaDescuento() {
-        return $pRebaja / 100;
+        return $this->precio * $this->rebaja / 100;
     }
 
     public function precioRebajado() {
-        return $precio - $rebaja;
+        return $this->precio - $this->calculaDescuento();
     }
 
     function __toString() {
-        parent::__toString() + ' La rebaja es: ' . $this->rebaja . '%' .'<br />'. 'El descuento es '. self::calculaDescuento().'$';
+        return parent::__toString() . 'Rebaja = ' . $this->rebaja . 
+        '%<br />' . 'Descuento = ' . $this->calculaDescuento() . '&euro;<br />';
     }
 
 
